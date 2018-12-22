@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+public class ShapesV11Tester
+{
+    public static void main(String[] args)
+    {
+        ArrayList<ShapesV11> shapes = new ArrayList<ShapesV11>();
+        shapes.add(new ShapesV11(10,  5));
+        shapes.add(new ShapesV11( 7, 13));
+        shapes.add(new ShapesV11( 2,  4));
+        shapes.add(new ShapesV11(28,  3));
+
+        ShapesV11 dataRecord;                   //creates a new dataRecord object of type ShapesV11
+
+        for(int index = 0; index < shapes.size(); index++)
+        {
+            dataRecord = shapes.get(index);
+            dataRecord.calcTriArea();
+            dataRecord.calcHypotenuse();
+        }
+
+        //print table headings
+        System.out.println("                     Triangles                     ");
+        System.out.println("Number     Side 1    Side 2       Hypotenuse       Area");
+
+        //call methods
+        for(int index = 0; index < shapes.size(); index++)
+        {
+            System.out.println("  " + index + " " +  shapes.get(index)); //The toString() method prints object
+        }
+    }//end main
+}//end class
