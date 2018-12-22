@@ -1,0 +1,74 @@
+/**
+ * Expand you V7 object implementation class and client class to manage an 
+ * array of data. Find the minimum, maximum, and averages of values.
+ *
+ * Brian Snyder
+ * 11/24/17
+ */
+public class StopwatchV8 {
+    // declares private instant variables
+    private double myTime1, myTime2, myTimeDifference, mySeconds;
+    private String myName;
+    
+    // constructor for objects of type StopwatchV8
+    StopwatchV8(double t1, double t2, String name) {
+        myTime1 = t1;
+        myTime2 = t2;
+        myName = name;
+        myTimeDifference = 0.0;
+        mySeconds = 0.0;
+    }
+    
+    // mutator method to calculate the time difference
+    public void calcTimeDifference() {
+        myTimeDifference = (Math.abs(myTime1 - myTime2));
+    }
+    
+    // getter method to return the value of the time difference
+    public double getTimeDifference() {
+        return myTimeDifference;
+    }
+    
+    // mutator method to calculate the time in seconds
+    public void calcSeconds(double timePassed) {
+        mySeconds = (timePassed * 60);
+    }
+    
+    // getter method to return the value of the time in seconds
+    public double getSeconds() {
+        return mySeconds;
+    }
+    
+    // getter method that returns the value of the first time
+    public double getTime1() {
+        return myTime1;
+    }
+    
+    // getter method that returms the value of the second time
+    public double getTime2() {
+        return myTime2;
+    }
+    
+    // setter method to assign a value to the first time
+    public void setTime1(double t1) {
+        myTime1 = t1;
+    }
+    
+    // setter method to assign a value to the second time
+    public void setTime2(double t2) {
+        myTime2 = t2;
+    }
+    
+    // getter method that returns the value of the name
+    public String getName() {
+        return myName;
+    }
+    
+    // returns a String of the object's values
+    public String toString() {
+        return String.format("%12d %9d %14.1f %13.1f", myTime1,
+                                                       myTime2,
+                                                       myTimeDifference,
+                                                       mySeconds);
+    } 
+}
