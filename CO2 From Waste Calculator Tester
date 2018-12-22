@@ -1,0 +1,48 @@
+/**
+ * Serves as a tester for CO2FromWasteV1, which wtites a program that calculates
+ * the amount of carbon dioxide produced in a year from waste by a household
+ * and compares how recycling can reduce the CO2 footprint
+ *
+ * Brian Snyder
+ * 11/25/17
+ *
+ */
+import java.util.ArrayList;
+
+public class CO2FromWasteTesterV1
+{
+   public static void main(String[] args)
+   {
+       // Declares ArrayList and initializes objects assigned to this ArrayList
+       ArrayList<CO2FromWasteV1> households = new ArrayList<CO2FromWasteV1>();
+       households.add(new CO2FromWasteV1(1, true, true, true, true));
+       households.add(new CO2FromWasteV1(6, true, false, true, false));
+       households.add(new CO2FromWasteV1(3, false, true, true, false));
+       households.add(new CO2FromWasteV1(2, true, true, false, true));
+       households.add(new CO2FromWasteV1(10, true, false, false, true));
+       households.add(new CO2FromWasteV1(1, false, true, true, true));
+       
+       // creates a new dataRecord object of type CO2FromWastTesterV1
+       CO2FromWasteV1 dataRecord;
+       
+       // calls methods
+       for(int index = 0; index < households.size(); index ++) {
+           dataRecord = households.get(index);
+           dataRecord.calcGrossWasteEmission();
+           dataRecord.calcWasteReduction();
+           dataRecord.calcNetWasteReduction();
+       }
+
+       // displays results
+       System.out.println("|       |        |                                         |             Pounds of CO2             |");
+       System.out.println("|       |        |       Household Waste Recycled          |   Total    |             |     Net    |");
+       System.out.println("| Index | People |  Paper   |  Plastic |  Glass  |  Cans   |  Emission  |  Reduction  |  Emission  |");
+       System.out.println("|-------|--------|----------|----------|---------|---------|------------|-------------|------------|");
+
+       for(int index = 0; index < households.size(); index ++) {
+           System.out.printf("%1s %3d %3s", "|", index, "|");
+           System.out.print(households.get(index)); // toString method prints objects
+       }
+   }
+}
+
