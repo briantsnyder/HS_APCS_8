@@ -1,0 +1,12 @@
+public class OverloadedMethodsTesterV2
+{
+    public static void main(String[] args)
+    {
+        OverloadedMethodsV2 overload = new OverloadedMethodsV2();
+
+        System.out.println("Testing Overloaded Methods");
+        System.out.println("Two doubles passed: " + overload.calcRectArea(4.75, 15.5));
+        System.out.println("One int passed: " + overload.calcRectArea(9));
+        System.out.println("Two ints passed: " + overload.calcRectArea(4, 15));
+    }
+}
