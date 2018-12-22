@@ -1,0 +1,49 @@
+public class StopwatchV8Tester {
+    public static void main(String[] args) {
+        // initializes array of objects 
+        StopwatchV8[] stopwatch = {new StopwatchV8(2.75, 3.3, "Sarah"),
+                                   new StopwatchV8(3.3, 4.4, "George"),
+                                   new StopwatchV8(5.1, 2.69, "John"),
+                                   new StopwatchV8(6.8, 5.44, "Sam"),
+                                   new StopwatchV8(2.4, 3.23, "Michael")};
+        
+        // initializes variables
+        double min = Double.MAX_VALUE;
+        double max = Double.MIN_VALUE;
+        double average = 0.0;
+        
+        // calls methods within a for loop
+        for (int index = 0; index < stopwatch.length; index++) {
+            stopwatch[index].calcTimeDifference();
+            stopwatch[index].calcSeconds(stopwatch[index].getTimeDifference());
+            
+            // calculates the min, max, and average
+            if (stopwatch[index].getTimeDifference() < min) {
+                min = stopwatch[index].getTimeDifference();
+            }
+            if (stopwatch[index].getTimeDifference() > max) {
+                max = stopwatch[index].getTimeDifference();
+            }
+            average += stopwatch[index].getTimeDifference() / stopwatch.length;
+        }
+        
+        // displays results
+        System.out.printf("%34s\n", "Time Trials");
+        System.out.printf("%6s%12s%10s%20s%15s\n", "Name", "Time 1", "Time 2", "Time Difference", "Difference");
+        System.out.printf("%17s%10s%15s%21s\n", "(min)", "(min)", "(min)", "in Seconds");
+        System.out.println("\n----------------------------------------------------------------");
+        
+        // prints objects through getter methods within a for loop
+        for (int index = 0; index < stopwatch.length; index++) {
+            System.out.printf("%-7s %8.2f %9.2f %14.2f %18.2f%n",  stopwatch[index].getName(),
+                                                                    stopwatch[index].getTime1(),
+                                                                    stopwatch[index].getTime2(),
+                                                                    stopwatch[index].getTimeDifference(),
+                                                                    stopwatch[index].getSeconds());
+        }
+        System.out.println("\n----------------------------------------------------------------");
+        System.out.printf("%34s %6.2f %18.2f %n", "Minimum: ", min, (min * 60));
+        System.out.printf("%34s %6.2f %18.2f %n", "Maximum: ", max, (max * 60));
+        System.out.printf("%34s %6.2f %18.2f %n", "Average: ", average, (average * 60));
+    }
+}
